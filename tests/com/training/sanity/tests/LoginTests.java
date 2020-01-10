@@ -39,6 +39,7 @@ public class LoginTests {
 		// open the browser 
 		driver.get(baseUrl);
 		System.out.println("URL Launch sucess");
+		System.out.println("Today is Friday Class");
 	}
 	
 	@AfterMethod
