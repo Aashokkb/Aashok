@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -38,8 +40,8 @@ public class LoginTests {
 		screenShot = new ScreenShot(driver); 
 		// open the browser 
 		driver.get(baseUrl);
-		System.out.println("URL Launch sucess");
-		System.out.println("Today is Friday Class");
+		//System.out.println("URL Launch sucess");
+		//System.out.println("Today is Friday Class");
 	}
 	
 	@AfterMethod
@@ -50,8 +52,18 @@ public class LoginTests {
 	@Test
 	public void validLoginTest() {
 		loginPOM.sendUserName("admin@gmail.com");
-		loginPOM.sendPassword("admin@123");
+		loginPOM.sendPassword("admin@778");
 		loginPOM.clickLoginBtn(); 
 		//screenShot.captureScreenShot("First");
+		//My Code from Here
+		System.out.println("Login Sucess & in Main Page");
+		System.out.println(" Starting Change Password Test Case for User admin@gmail.com");
+		
+		loginPOM.clickChangepassword();
+		loginPOM.sendPassword("admin@779");
+		loginPOM.sendConfirmPassword("admin@779");
+		loginPOM.clickSubmitBtn();
+		System.out.println("You changed your Passwrod sucessfully");
 	}
+		
 }
