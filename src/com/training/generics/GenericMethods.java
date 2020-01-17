@@ -29,6 +29,7 @@ public class GenericMethods {
 	 * @return  WebElement
 	 * this method shall give provided it has single enty in the DOM
 	 */
+	
 	public WebElement getElement(String locator, String type){
 		WebElement element  = null;
 		type = type.toLowerCase();
@@ -81,4 +82,35 @@ public class GenericMethods {
 	public boolean checkSingleEntry(String locator, String type){
 		return getElementsAsList(locator, type).size() ==1;
 	}
+	public boolean txtBoxVisibility(WebElement element, String value) {
+        boolean visibleElement = false;
+        try {
+            if(element.isDisplayed()) {
+                visibleElement = true;
+                element.clear();
+                element.sendKeys(value);
+                System.out.println("element is present");
+            }
+        } catch(Exception e) {
+          System.out.println("No element is visisble");    
+        }
+        return visibleElement;
+        
+    }
+    
+    public boolean linkVisibility(WebElement element) {
+        boolean visibleElement = false;
+        try {
+            if(element.isDisplayed()) {
+                visibleElement = true;
+                element.click();
+                
+                System.out.println("element is present");
+            }
+        } catch(Exception e) {
+          System.out.println("No element is visisble");    
+        }
+        return visibleElement;
+        
+    }
 }
